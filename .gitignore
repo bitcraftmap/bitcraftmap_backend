@@ -17,7 +17,7 @@
 .terraform.lock.hcl
 
 # rust
-/target/
+stdb_explorer/target/
 **/*.rs.bk
 Cargo.lock
 
@@ -34,3 +34,5 @@ pgadmin/servers.json
 initdb/00_extensions.sql
 initdb/01_schema.sql
 initdb/02_tables.sql
+stdb_explorer/data/
+stdb_explorer/src/module_bindings
