@@ -28,3 +28,6 @@ pgdata/
 postgresql.conf
 pg_hba.conf
 recovery.conf
+
+# other
+servers.json
