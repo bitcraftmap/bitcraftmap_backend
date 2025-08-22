@@ -29,5 +29,8 @@ postgresql.conf
 pg_hba.conf
 recovery.conf
 
-# other
-servers.json
+# Project specific with credentials
+pgadmin/servers.json
+initdb/00_extensions.sql
+initdb/01_schema.sql
+initdb/02_tables.sql

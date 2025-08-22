@@ -5,9 +5,14 @@ services:
     restart: unless-stopped
     user: postgres
     environment:
+      POSTGRES_INITDB_ARGS: "--auth=scram-sha-256"
       POSTGRES_DB: ${POSTGRES_DB_NAME?}
       POSTGRES_USER: ${POSTGRES_DB_ADMIN_NAME?}
       POSTGRES_PASSWORD: ${POSTGRES_DB_ADMIN_PASSWORD?}
+
+# see later : POSTGRES_INITDB_WALDIR / POSTGRES_HOST_AUTH_METHOD / PGDATA 
+# see https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+
     ports:
       - "5432:5432"
     healthcheck:
@@ -16,7 +21,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - bitcraftmapnet
+      - bitcraftmap-network
     volumes:
       - bitcraftmap-postgis-data:/var/lib/postgresql/data
       - ./initdb:/docker-entrypoint-initdb.d:ro
@@ -30,16 +35,17 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL?}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD?}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
     ports:
       - "8080:80"
     networks:
-      - bitcraftmapnet
+      - bitcraftmap-network
     volumes:
       - bitcraftmap-pgadmin-data:/var/lib/pgadmin
       - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
 
 networks:
-  bitcraftmapnet:
+  bitcraftmap-network:
     driver: bridge
 
 volumes:

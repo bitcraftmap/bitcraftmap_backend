@@ -5,6 +5,11 @@ export $(grep -v '^#' .env | xargs)
 
 # Generate the servers.json for pgadmin
 envsubst < pgadmin/servers.json.template > pgadmin/servers.json
+envsubst < initdb/00_extensions.sql.template > initdb/00_extensions.sql
+envsubst < initdb/01_schema.sql.template > initdb/01_schema.sql
+envsubst < initdb/02_tables.sql.template > initdb/02_tables.sql
+
+exit 0
 
 # Start Docker Desktop if its not up
 if ! docker info >/dev/null 2>&1; then

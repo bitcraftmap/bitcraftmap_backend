@@ -1,12 +1,13 @@
 {
   "Servers": {
     "1": {
-      "Name": "BitCraft Map PostGIS",
+      "Name": "BitCraftMapDB",
       "Group": "Servers",
       "Host": "db",
       "Port": 5432,
       "MaintenanceDB": "${POSTGRES_DB_NAME}",
       "Username": "${POSTGRES_DB_ADMIN_NAME}",
+      "Password": "${POSTGRES_DB_ADMIN_PASSWORD}",
       "SSLMode": "prefer"
     }
   }
