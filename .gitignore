@@ -1,0 +1,30 @@
+# dotenv
+.env
+.env.*.local
+
+# docker
+**/db-data/
+**/docker-compose.override.yml
+**/docker-compose.override.yaml
+*.pid
+*.log
+
+# terraform
+*.tfstate
+*.tfstate.*
+.crash
+.terraform/
+.terraform.lock.hcl
+
+# rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# postgres
+*.dump
+*.sql~
+pgdata/
+postgresql.conf
+pg_hba.conf
+recovery.conf
