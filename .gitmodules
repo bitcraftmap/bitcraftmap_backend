@@ -1,0 +1,3 @@
+[submodule "stdb_bindings"]
+	path = stdb_bindings
+	url = https://github.com/vis-eyth/bitcraft-bindings.git
